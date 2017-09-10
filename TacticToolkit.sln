@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ttk", "ttk\ttk.pyproj", "{45C066E6-5B02-4B1F-98E7-507F257ACDCC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp", "csharp", "{4FB520AA-5BF3-4055-969B-697E367E55B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TacticToolkit.CSharp", "csharp\TacticToolkit.CSharp\TacticToolkit.CSharp.csproj", "{B2DA64BD-AADA-4327-8C11-64A6DF46AC30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TacticToolkit.UnitTests", "csharp\TacticToolkit.UnitTests\TacticToolkit.UnitTests.csproj", "{3335D2BD-B729-4FF2-9C45-0297419E8F45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C600C88-C0E0-4E48-9CF3-0FAF9393FE2E}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "python", "python", "{5B7964A3-D656-4175-B4A8-222EAF3B3671}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45C066E6-5B02-4B1F-98E7-507F257ACDCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C066E6-5B02-4B1F-98E7-507F257ACDCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2DA64BD-AADA-4327-8C11-64A6DF46AC30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2DA64BD-AADA-4327-8C11-64A6DF46AC30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2DA64BD-AADA-4327-8C11-64A6DF46AC30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2DA64BD-AADA-4327-8C11-64A6DF46AC30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3335D2BD-B729-4FF2-9C45-0297419E8F45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3335D2BD-B729-4FF2-9C45-0297419E8F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3335D2BD-B729-4FF2-9C45-0297419E8F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3335D2BD-B729-4FF2-9C45-0297419E8F45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{45C066E6-5B02-4B1F-98E7-507F257ACDCC} = {5B7964A3-D656-4175-B4A8-222EAF3B3671}
+		{B2DA64BD-AADA-4327-8C11-64A6DF46AC30} = {4FB520AA-5BF3-4055-969B-697E367E55B9}
+		{3335D2BD-B729-4FF2-9C45-0297419E8F45} = {4FB520AA-5BF3-4055-969B-697E367E55B9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41CB959D-CF5A-45F6-B3B0-71652270644C}
+	EndGlobalSection
+EndGlobal
