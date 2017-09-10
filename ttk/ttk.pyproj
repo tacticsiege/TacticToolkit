@@ -22,9 +22,41 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="corpus\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="data\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="plotting\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="preprocessing\sequence.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="preprocessing\test_sequence.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="preprocessing\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="sandbox\udemy\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="sandbox\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="__init__.py">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="corpus\" />
+    <Folder Include="data\" />
+    <Folder Include="plotting\" />
+    <Folder Include="preprocessing\" />
+    <Folder Include="sandbox\" />
+    <Folder Include="sandbox\udemy\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
