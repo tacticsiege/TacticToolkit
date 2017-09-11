@@ -22,6 +22,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="corpus\CategorizedDatedCorpusReader.py" />
+    <Compile Include="corpus\CategorizedDatedCorpusReporter.py" />
     <Compile Include="corpus\__init__.py">
       <SubType>Code</SubType>
     </Compile>
