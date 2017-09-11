@@ -31,10 +31,13 @@
     <Compile Include="plotting\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="preprocessing\sequence.py">
+    <Compile Include="preprocessing\Seq2IndexTransformer.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="preprocessing\test_sequence.py">
+    <Compile Include="preprocessing\Seq2IndexTransformerTests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="preprocessing\SeqPaddingTransformer.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="preprocessing\__init__.py">
