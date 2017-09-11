@@ -27,9 +27,11 @@
     <Compile Include="corpus\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="data\generation.py" />
     <Compile Include="data\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="plotting\CategorizedDatedCorpusPlotter.py" />
     <Compile Include="plotting\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -56,6 +58,12 @@
     <Compile Include="sandbox\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="text\Normalizer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="text\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -67,6 +75,7 @@
     <Folder Include="preprocessing\" />
     <Folder Include="sandbox\" />
     <Folder Include="sandbox\udemy\" />
+    <Folder Include="text\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
