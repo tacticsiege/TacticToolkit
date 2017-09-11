@@ -45,6 +45,11 @@
     <Compile Include="preprocessing\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="sandbox\udemy\ANN.py" />
+    <Compile Include="sandbox\udemy\GRU.py" />
+    <Compile Include="sandbox\udemy\HiddenLayer.py" />
+    <Compile Include="sandbox\udemy\LSTM.py" />
+    <Compile Include="sandbox\udemy\SimpleRNNClassifier.py" />
     <Compile Include="sandbox\udemy\__init__.py">
       <SubType>Code</SubType>
     </Compile>
