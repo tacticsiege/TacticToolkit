@@ -11,6 +11,7 @@ class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
                  token_filter_func=None, 
                  limit_size=None, 
                  add_delimiters=True,
+                 strip_delimiters=False,
                  one_hot=False):
 
         # token mapping is executed on each element in sequence
@@ -31,6 +32,7 @@ class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
 
         # setup delimiters
         self._delimiters = add_delimiters
+        self._strip_delimiters = strip_delimiters
         self.start_idx = 0
         self.start_token = 'START'
         self.end_idx = 1
@@ -82,7 +84,12 @@ class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
 
         """
         model, transformed_objects, obj_idx_counts = self._partial_fit_model(X)
-        return model, transformed_objects
+        
+        # optionally one-hot encode
+        if self._one_hot:
+            transformed_objects = self.one_hot_sequences(transformed_objects)
+
+        return transformed_objects
 
 
     def transform(self, X):
@@ -97,8 +104,14 @@ class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
             return None
 
         # option A (used): always fit when transforming, learns any new object that is encountered
+        #   One-Hot vectors use most recent index size and may not align.
         # option B: label new words as UNKNOWN, will not learn new object when encountered
         model, transformed_objects, obj_idx_counts = self._partial_fit_model(X)
+
+        # optionally one-hot encode
+        if self._one_hot:
+            transformed_objects = self.one_hot_sequences(transformed_objects)
+
         return transformed_objects
         
 
@@ -115,30 +128,43 @@ class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
             print ('len of idx2obj:', len(self.idx2obj))
             for idx in indexed_obj:
                 print ('looking up idx:', idx)
-                t = self.idx2obj[idx]
-                # todo: optionally remove START/END tokens
+                if idx < 2 and self._strip_delimiters and self._delimiters:
+                    # don't include START/END
+                    continue
+
+                t = self.idx2obj[idx]                
                 u.append(t)
+
             untransformed.append(u)            
 
         return untransformed
 
 
-    def one_hot_sequences(self, i, indexed_objects):
+    def one_hot_sequences(self, indexed_objects):
         one_hots = [] # list of sequences of one-hot encoded index vectors
         # fit the encoder on all sequences
         oh_training_data = [[i] for i in range(len(self.idx2obj))]
+
+        if not self._delimiters:
+            # skip first 2 elements (delimiters)
+            oh_training_data = oh_training_data[2:]
         self._one_hot_enc = self._one_hot_enc.fit(oh_training_data)
-        # iterate over all sequences and encode each token
+        
         for seq in indexed_objects:
             one_hot_seq = []
             for token in seq:
+                if not self._delimiters:
+                    # make sure the token isn't a delimiter token, it can't be
+                    assert token != self.start_idx
+                    assert token != self.end_idx
+
+                # encode each token of the sequence individually
                 oh = self._one_hot_enc.transform([[token]])[0].toarray()[0] # immedately take the first (only) element
                 one_hot_seq.append(list(oh))
             one_hots.append(one_hot_seq)
         
-        # constructed one_hot vectors, assign them back to indexed_objects
-        indexed_objects = one_hots
-        return indexed_objects
+        # constructed one hot vectors
+        return one_hots
 
     def _partial_fit_model(self, X):
         """
@@ -177,11 +203,7 @@ class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
             pass
         
         # indicate the model has been fit
-        self._fit = True
-
-        # todo: optionally one-hot encode
-        if self._one_hot:
-            indexed_objects = self.one_hot_sequences(i, indexed_objects)
+        self._fit = True        
 
         # returned fitted transformer, transformed input, counts
         return self, indexed_objects, self.obj_idx_count
@@ -199,7 +221,7 @@ class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
             yield tokens
 
     def _process_token(self, t, s):
-        print ('processing:', t, 'from:', s)
+        # print ('processing:', t, 'from:', s)
         return t
 
     def _filter_token(self, t, s):
