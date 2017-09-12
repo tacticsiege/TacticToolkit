@@ -172,7 +172,7 @@ class CategorizedDatedCorpusReporter(object):
         formatted = []
         for s in summaries:
             date_summary = str(
-                '{}: {:2} categories, {:4} sentences, {:5} words, {:5} unique words, {:3} files'
+                '{}: {:2} categories {:4} sentences {:5} words {:5} unique words {:3} files'
                 .format(s['date'], s['categories'], s['sentences'], s['words'], s['uniq_words'], s['files']))
             formatted.append(date_summary)
         summaries = '\n'.join(formatted)
@@ -182,7 +182,7 @@ class CategorizedDatedCorpusReporter(object):
         formatted = []
         for s in summaries:
             category_summary = str(
-                "{:20} {:3} dates {:6} sentences {:7} words {:6} unique words, {:3} files"
+                "{:20} {:3} dates {:6} sentences {:7} words {:6} unique words {:3} files"
                 .format(s['category'], s['dates'], s['sentences'], s['words'], s['uniq_words'], s['files']))
             formatted.append(category_summary)
         return '\n'.join(formatted)
