@@ -8,13 +8,13 @@ Collection of machine learning and natural language processing utilities.
 ## Development
 
 ### Links
-- Official repo
+- Official repo: https://github.com/tacticsiege/TacticToolkit
 - [Releases]
-- Issue tracker
+- [Issue tracker]
 
 ### Source
 ```
-git clone https://github.com/tacticsiege/ttk.git
+git clone https://github.com/tacticsiege/TacticToolkit.git
 ```
 
 ### Environment setup
@@ -23,10 +23,9 @@ git clone https://github.com/tacticsiege/ttk.git
 
 ## Project History
 
-## License
 
 ## Help and Support
 
-### Doctumentation
+### Documentation
 ### Communication
 ### Citation
