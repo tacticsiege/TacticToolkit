@@ -24,7 +24,7 @@ class SeqPaddingTransformer(object):
             token = seq[i]
             transformed_seq = []
             seq_length = len(seq)
-            while type(token) is str:
+            while token != 0.0:
                 transformed_seq.append(token)
                 i += 1
                 if i < seq_length:
