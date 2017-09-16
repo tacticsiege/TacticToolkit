@@ -5,7 +5,7 @@ from sklearn.base import BaseEstimator
 from sklearn.base import TransformerMixin
 
 class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
-    """ Transforms a sequence of words into a sequence of indices. """
+    """ Transforms a sequence of objects into a sequence of indices. """
     def __init__(self, 
                  token_mapping_func=None, 
                  token_filter_func=None, 

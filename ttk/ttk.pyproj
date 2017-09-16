@@ -41,6 +41,12 @@
     <Compile Include="preprocessing\Seq2IndexTransformerTests.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="preprocessing\Seq2WordVecTransformer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="preprocessing\Seq2WordVecTransformerTests.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="preprocessing\SeqPaddingTransformer.py">
       <SubType>Code</SubType>
     </Compile>

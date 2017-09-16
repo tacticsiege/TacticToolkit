@@ -2,7 +2,7 @@ import unittest
 
 from ttk.preprocessing import SeqPaddingTransformer
 
-class Test_SeqPaddingTransformerTests(unittest.TestCase):
+class SeqPaddingTransformerTests(unittest.TestCase):
     
     
     def setUp(self):
