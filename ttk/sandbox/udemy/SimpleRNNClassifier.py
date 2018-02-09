@@ -3,11 +3,13 @@ import theano.tensor as T
 
 import numpy as np
 
-from ttk.nnet import init_weight
+from ttk.sandbox.udemy import init_weight
 
 import matplotlib.pyplot as plt
 
 from sklearn.utils import shuffle
+
+import time
 
 class SimpleRNNClassifier(object):
     def __init__(self, M):
@@ -19,6 +21,8 @@ class SimpleRNNClassifier(object):
         N = len(Y)
         M = self.M
         self.f = activation
+
+        print ('D, K, N, M:', D, K, N, M)
 
         # initial weights
         Wx = init_weight(D, M)
@@ -40,6 +44,7 @@ class SimpleRNNClassifier(object):
         # theano inputs/outputs
         thX = T.fmatrix('X')
         thY = T.ivector('Y')
+        #thY = T.fmatrix('Y')
         
         def recurrence(x_t, h_t1):
             # returns h(t), y(t)
@@ -54,6 +59,9 @@ class SimpleRNNClassifier(object):
             n_steps=thX.shape[0]
         )
         
+        #print ('Shape y:', y.shape)
+        #print ('y[0, 0, 0]:', y[0,0,0])
+
         py_x = y[:, 0, :]
         prediction = T.argmax(py_x, axis=1)
         
@@ -81,17 +89,26 @@ class SimpleRNNClassifier(object):
         # training loop
         costs = []
         for i in range(epochs):
+            start_time = time.time()
+            print ('iteration:', i)
             X, Y = shuffle(X, Y)
             n_correct = 0
             cost = 0
             for j in range(N):
+                #print ('X[j]:', X[j], 'Y[j]:', Y[j])
+                
                 c, p, rout = self.train_op(X[j], Y[j])
+                #print ('c:', c)
                 cost += c
+                #print ('p[-1]:', p[-1], 'Y[j,-1]:', Y[j,-1])
                 if p[-1] == Y[j, -1]:
                     n_correct += 1
-            #print ('shape y:', rout.shape)
+            print ('shape y:', rout.shape)
             print ('i:', i, 'cost:', cost, 'classification rate:', (float(n_correct) / N))
             costs.append(cost)
+            end_time = time.time()
+            duration = end_time - start_time
+            print ('duration:', duration)
             
         if show_fig:
             plt.plot(costs)

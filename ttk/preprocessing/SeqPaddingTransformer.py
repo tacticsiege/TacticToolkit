@@ -1,3 +1,5 @@
+import numpy as np
+
 class SeqPaddingTransformer(object):
     """ Transforms a varying length set of sequences by padding with zeros. """
     def __init__(self):
@@ -47,12 +49,24 @@ class SeqPaddingTransformer(object):
         for seq in X:
             x = []
             seq_length = len(seq)
+
+            # grab first token to determine type and dim
+            t0 = seq[0]
+
+            using_vect = False
+            if type(t0) is type(np.ndarray(1)):
+                dim = t0.shape
+                using_vect = True
+
             for i in range(self.max_length):
                 if i < seq_length:
                     x.append(seq[i])
                 else:
-                    x.append(0.0)
+                    if using_vect:
+                        x.append(np.zeros_like(t0))
+                    else:
+                        x.append(0.0)
             X_padded.append(x)
-        return X_padded
+        return np.array(X_padded)
 
 

@@ -1,5 +1,5 @@
 
-from ttk.nnet import init_weight
+from ttk.sandbox.udemy import init_weight
 
 import numpy as np
 

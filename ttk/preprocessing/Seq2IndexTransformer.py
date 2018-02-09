@@ -69,7 +69,7 @@ class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
             params: X - list of sequences of objects.
             returns: fitted vectorizer.
         """
-        model, transformed_objects, obj_idx_counts = self._partial_fit_model(X)
+        model, transformed_objects, obj_idx_counts = self._partial_fit_model(X)        
         return model
 
     def partial_fit(self, X):
@@ -87,6 +87,7 @@ class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
         
         # optionally one-hot encode
         if self._one_hot:
+            print ('Encoding index as one-hot...')
             transformed_objects = self.one_hot_sequences(transformed_objects)
 
         return transformed_objects
@@ -161,7 +162,9 @@ class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
                 # encode each token of the sequence individually
                 oh = self._one_hot_enc.transform([[token]])[0].toarray()[0] # immedately take the first (only) element
                 one_hot_seq.append(list(oh))
+                print ('adding:', oh)
             one_hots.append(one_hot_seq)
+            print ('added seq:', one_hot_seq)
         
         # constructed one hot vectors
         return one_hots
@@ -204,6 +207,8 @@ class Seq2IndexTransformer(BaseEstimator, TransformerMixin):
         
         # indicate the model has been fit
         self._fit = True        
+
+        print ('Max index:', len(self.obj_idx_count.values()))
 
         # returned fitted transformer, transformed input, counts
         return self, indexed_objects, self.obj_idx_count
