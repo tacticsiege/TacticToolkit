@@ -1,5 +1,12 @@
 # TacticToolkit
-Collection of machine learning and natural language processing utilities.  
+Collection of machine learning and natural language processing utilities.
+
+## Tokenomics
+The project now includes a helper module `tokenomics.py` for analysing
+OpenAI chat prompts. It reports how many tokens a list of messages will
+consume for a given model and optionally estimates tokens for a predicted
+assistant reply. Results are cached under `~/.cache/tactictoolkit` to
+speed up repeated calculations.
 
 ## Installation
 ### Dependencies
