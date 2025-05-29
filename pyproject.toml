@@ -18,6 +18,7 @@ dependencies = [
     "matplotlib",
     "nltk",
     "theano",
+    "tiktoken",
 ]
 
 [tool.setuptools.packages.find]
