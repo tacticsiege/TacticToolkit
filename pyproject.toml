@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tactictoolkit"
+version = "0.1.0"
+description = "Collection of machine learning and natural language processing utilities."
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Ryan Little"}]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "scikit-learn",
+    "gensim",
+    "pandas",
+    "matplotlib",
+    "nltk",
+    "theano",
+]
+
+[tool.setuptools.packages.find]
+include = ["ttk*"]

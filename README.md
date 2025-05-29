@@ -4,6 +4,17 @@ Collection of machine learning and natural language processing utilities.
 ## Installation
 ### Dependencies
 ### User installation
+Install the package with `pip` using the included `pyproject.toml`.
+
+```bash
+pip install .
+```
+
+For development installs use the editable flag:
+
+```bash
+pip install -e .
+```
 
 ## Development
 
