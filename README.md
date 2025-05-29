@@ -5,6 +5,7 @@ Collection of machine learning and natural language processing utilities.
 ### Dependencies
 ### User installation
 Install the package with `pip` using the included `pyproject.toml`.
+Python source code is located under the `src/` directory.
 
 ```bash
 pip install .
