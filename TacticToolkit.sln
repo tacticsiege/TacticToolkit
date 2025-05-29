@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ttk", "ttk\ttk.pyproj", "{45C066E6-5B02-4B1F-98E7-507F257ACDCC}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ttk", "src\ttk\ttk.pyproj", "{45C066E6-5B02-4B1F-98E7-507F257ACDCC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp", "csharp", "{4FB520AA-5BF3-4055-969B-697E367E55B9}"
 EndProject
